@@ -2,6 +2,15 @@
 
 ### 프로젝트 개요  
 
+1. 커스텀 웹 서버 이미지 생성  
+
+2. 컨테이너와 포트 매핑 실습  
+
+3. 볼륨을 이용한 데이터 영속성 확인  
+
+4. 버전 관리와 깃허브 연동  
+
+
 ----  
 ## 0. 실행 환경  
 OS: macOS  
@@ -323,6 +332,24 @@ i want to go home.
 ----
 
 ## 9. Git 설정 및 GitHub 연동
+
+```
+#환경 설정 확인
+% git config --list 
+credential.helper=osxkeychain
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+core.ignorecase=true
+core.precomposeunicode=true
+remote.origin.url=https://github.com/jaeeun-y/jaeeunsRepository.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
+```
+---
+
 # 트래블슈팅
 1. chmod 명령어로 디렉터리의 권한을 변경할 때 권한이 변경되지 않는 문제가 발생함.
 -> 하위 폴더 까지 권한을 바꿔줘야 한다.  
