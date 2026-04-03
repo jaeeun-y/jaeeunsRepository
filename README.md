@@ -1,6 +1,6 @@
-## jaeeunsRepository
+## 🚀jaeeunsRepository
 
-### 프로젝트 개요  
+### 📝프로젝트 개요  
 
 ### 1. 커스텀 웹 서버 이미지 생성  
 
@@ -16,13 +16,13 @@
 + 이미지vs컨테이너
 + 트러블슈팅
 ----  
-## 0. 실행 환경  
+## 💻0. 실행 환경  
 OS: macOS  
 Docker version: 28.5.2  
 Z쉘 zsh (macOS 기본 쉘)  
 Git version: 2.53.0
 
-## 1. 터미널 조작 로그 기록
+## 🛠1. 터미널 조작 로그 기록
 
 ### 1-1 현재 위치 및 목록 확인 (숨김 파일 포함)
 ```
@@ -95,7 +95,7 @@ student@c6r1s8 ~ % cat newfile1 //파일 내용 확인
 hello jaeeun
 ```
 ----
-## 2. 권한 실습
+## 🔐2. 권한 실습
 ### 2-1 권한 확인 및 권한 변경
 
 r 읽기 권한 (4)  
@@ -128,7 +128,7 @@ total 8
 -rwxrwxrwx  1 student student  3  4  2 18:12 newfile4
 ```
 ----
-## 3. Docker 설치 및 기본 점검
+## 🐳3. Docker 설치 및 기본 점검
 ### 3-1 Docker 버전 확인 결과
 ```
 % docker --version
@@ -160,7 +160,7 @@ Server: // 실제로 일을 수행하는 도커 엔진
 ...(중략)..
 ```
 ----
-## 4. Docker 기본 운영 명령 수행
+## ⚙️4. Docker 기본 운영 명령 수행
 ### 이미지: 다운로드/목록 확인
 ```
 #이미지 hello-world 다운로드
@@ -222,7 +222,7 @@ CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O      
 7351add7fbde   myweb     0.00%     20.43MiB / 15.67GiB   0.13%     1.13kB / 126B   16.1MB / 0B   7 
 ```
 ----
-## 5. 컨테이너 실행 실습
+## 🏃‍♂️5. 컨테이너 실행 실습
 ### 5-1 hello-worlld 실행
 ```
 % docker run hello-world
@@ -277,7 +277,7 @@ cb76d25f228d   ubuntu    "bash"                    About a minute ago   Up About
 //컨테이너가 종료되지 않고 남아있음을 확인 가능
 ```
 ----
-## 6. 기존 Dockerfile 기반 커스텀 이미지 제작
+## 🏗6. 기존 Dockerfile 기반 커스텀 이미지 제작
 (A) 웹 서버 베이스 이미지 활용 + 정적 콘텐츠/설정 교체  
 
 ### 6-1 커스텀 이미지 빌드 성공 및 컨테이너 실행 성공
@@ -321,7 +321,7 @@ myweb % docker run -d -p 8080:80 --name custom-web myweb-app
 <img width="1658" height="482" alt="image" src="https://github.com/user-attachments/assets/25f0fd80-9293-40e0-ae21-f8366724c1dd" />
 ----
 
-## 7. 포트 매핑 및 접속 증거
+## 🌐7. 포트 매핑 및 접속 증거
 
 컨테이너는 내 컴퓨터(호스트)의 네트워크와 완전히 격리되어 있는 도커 내부의 가상IP를 가지므로 호스트PC에서 직접 접근할 수 없다.  
 따라서 외부와 연결된 호스트의 특정 (8080)포트와 컨테이너 내부의 80포트를 매핑해 접속이 가능하게 한다.
@@ -333,7 +333,7 @@ myweb % curl http://localhost:8080
 
 ----
 
-## 8. Docker 볼륨 영속성 검증
+## 💾8. Docker 볼륨 영속성 검증
 
 ### 8-1 Docker 볼륨을 생성하고 컨테이너에 연결
 ```
@@ -357,7 +357,7 @@ i want to go home.
 
 ----
 
-## 9. Git 설정 및 GitHub 연동
+## 🐙9. Git 설정 및 GitHub 연동
 
 ```
 #환경 설정 확인
@@ -376,7 +376,7 @@ branch.main.merge=refs/heads/main
 ```
 ---
 
-# 절대경로vs상대경로
+# 📍절대경로vs상대경로
 ```
 절대경로: /Users/student/myweb  
 상대경로: myweb, ./myweb, ../myweb
@@ -386,13 +386,13 @@ branch.main.merge=refs/heads/main
 ++ 단축경로: ~/myweb
 ```
 
-# 이미지vs컨테이너
+# 📍이미지vs컨테이너
       [Build] : 이미지는 Dockerfile을 통해 빌드되어 만들어지며, 한 번 생성되면 내부 상태가 변하지 않음.
       [Run]   : 컨테이너는 만들어진 이미지를 바탕으로 메모리에 적재되어 실행되는 상태임.
       [Change]: 이미지는 수정 불가능, 컨테이너는 내부에서 파일을 생성, 변경 등 수정 가능.
 
       
-# 트래블슈팅
+# 🛠트래블슈팅
 ```
 1. chmod 명령어로 디렉터리의 권한을 변경할 때 권한이 변경되지 않는 문제가 발생함.
 [가설] 디렉터리 내부의 하위 파일들 때문에 권한이 변경되지 않을 것이다.  
