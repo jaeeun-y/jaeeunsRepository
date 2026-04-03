@@ -98,12 +98,10 @@ hello jaeeun
 ## 2. 권한 실습
 ### 2-1 권한 확인 및 권한 변경
 
-r 읽기 권한 (4)
-w 쓰기 권한 (2)
-x 실행 권한 (1)
+r 읽기 권한 (4)  
+w 쓰기 권한 (2)  
+x 실행 권한 (1)  
 
-d 디렉터리
-- 파일
 
 ### -변경 전  
 ```
@@ -117,9 +115,9 @@ student@c6r1s8 ~ % ls -l newdir1/newfile4
 ```
 ### -변경 후
 
-7      7      7    //(4+2+1)
-owner groups others
-rwx   rwx    rwx
+7         7         7    //(4+2+1)  
+owner groups others  
+rwx   rwx    rwx  
 
 ```
 % chmod -R 777 newdir1
@@ -286,7 +284,7 @@ cb76d25f228d   ubuntu    "bash"                    About a minute ago   Up About
 
 myweb  
  ㄴ src  
-   ㄴ index.html  
+      ㄴ index.html  
  ㄴ Dockerfile
 
 
@@ -379,13 +377,14 @@ branch.main.merge=refs/heads/main
 ---
 
 # 절대경로vs상대경로
-
-절대경로: /Users/student/myweb
+```
+절대경로: /Users/student/myweb  
 상대경로: myweb, ./myweb, ../myweb
 
 작업 환경이 컴퓨터마다 다르고 타이핑이 절대경로보다 간편한 상대경로를 사용함.
 
 ++ 단축경로: ~/myweb
+```
 
 # 이미지vs컨테이너
       [Build] : 이미지는 Dockerfile을 통해 빌드되어 만들어지며, 한 번 생성되면 내부 상태가 변하지 않음.
@@ -394,19 +393,23 @@ branch.main.merge=refs/heads/main
 
       
 # 트래블슈팅
+```
 1. chmod 명령어로 디렉터리의 권한을 변경할 때 권한이 변경되지 않는 문제가 발생함.
 [가설] 디렉터리 내부의 하위 파일들 때문에 권한이 변경되지 않을 것이다.  
  
  -> -R 옵션을 사용했더니 내부의 모든 파일과 디렉터리의 권한이 바뀌었다.  
-
+```
+```
 2. docker status로 리소스를 확인하기 위해 stop으로 멈춘 컨테이너를 계속 run명령으로 살리려 시도함.  
  [가설] 이미 죽은 컨테이너라서 run명령이 먹지 않을 것이다.
    
 -> run이 아닌 start명령으로 사용했더니 해결되었다.
-     
+```
+```
 3. status가 Exited인 hello-world가 rm 명령으로 지워지지 않는 문제가 발생함.  
  [가설] rm명령은 컨테이너를 삭제하는 명령어라 지워지지 않았을 것이다.
 
 -> docker ps -a 를 통해 (멈춘 컨테이너 포함) 컨테이너 목록을 확인했더니, hello-world 이미지를 사용한 컨테이너의 고유 이름이 도커가 임의로 부여한 clever_habit 이었음을 확인함.
 
 -> docker rm clever_habit 명령어로 해결되었다.
+```
