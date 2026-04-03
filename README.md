@@ -238,6 +238,7 @@ This message shows that your installation appears to be working correctly.
 #파일 목록 확인
 root@b6ab414dfabc:/# ls
 bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+
 #새 디렉토리 생성 후 내용 출력
 root@b6ab414dfabc:/# echo "so tired" > newdir1
 root@b6ab414dfabc:/# ls
@@ -248,13 +249,17 @@ bin  boot  dev  etc  home  lib  lib64  media  mnt  newdir1  opt  proc  root  run
 % docker run -dit --name testcontainer  ubuntu bash // -d: 백그라운드에서, -i: 컨테이너 오픈 상태 유지, -t:가상터미널 할당
 ```
 #attach
+
 #새 프로세스로 접속
-% docker attach  testcontainer    
+% docker attach  testcontainer
+
 #프로세스 확인
 root@cb76d25f228d:/# ps aux    
 USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root           1  0.0  0.0   4596  2608 pts/0    Ss   12:45   0:00 bash
+
 root@cb76d25f228d:/# exit
+
 #컨테이너 목록 확인
 % docker ps -a
 CONTAINER ID   IMAGE         COMMAND                   CREATED             STATUS                      PORTS     NAMES
@@ -262,14 +267,18 @@ cb76d25f228d   ubuntu        "bash"                    16 minutes ago      Exite
 ```
 ```
 #exec
+
 #새 프로세스로 접속
 % docker exec -it testcontainer bash
+
 #프로세스 확인 후 종료
 root@cb76d25f228d:/# ps aux
 USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root           1  0.0  0.0   4596  3884 pts/0    Ss+  12:45   0:00 bash
 root           9  0.0  0.0   4596  4016 pts/1    Ss   12:45   0:00 bash // 새로 만든 bash셸
+
 root@cb76d25f228d:/# exit
+
 #컨테이너 목록 확인
 % docker ps   
 CONTAINER ID   IMAGE     COMMAND                   CREATED              STATUS              PORTS     NAMES
