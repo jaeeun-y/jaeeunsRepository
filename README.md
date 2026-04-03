@@ -1,14 +1,16 @@
 ## jaeeunsRepository
- 
-### 프로젝트 개요
-  리눅스 기초와 Docker 컨테이너 가상화 운영을 이 과제의 목표로 한다.  
+
+### 프로젝트 개요  
+
 ----  
 ## 0. 실행 환경  
 OS: macOS  
 Docker version: 28.5.2  
 Z쉘 zsh (macOS 기본 쉘)  
 Git version: 2.53.0
+
 ## 1. 터미널 조작 로그 기록
+
 ### 1-1 현재 위치 및 목록 확인 (숨김 파일 포함)
 ```
 #현재 작업 디렉토리 확인
@@ -16,6 +18,7 @@ student@c6r1s8 ~ % pwd
 /Users/student
 ```
 ```
+
 #파일 목록 확인
 student@c6r1s8 ~ % ls -al
 total 8
@@ -33,6 +36,7 @@ drwx------+  3 student student    96  4  2 16:45 Documents
 drwx------+  4 student student   128  4  2 17:00 Downloads
 ...
 ```
+
 ### 1-2 파일 생명주기 관리 (생성, 복사, 삭제)
 ```
 student@c6r1s8 ~ % touch newfile1
@@ -50,6 +54,7 @@ student@c6r1s8 ~ % cp newfile1 newfile2 //newfile1 파일 복사
 student@c6r1s8 ~ % cat newfile2
 hello jaeeun
 ```
+
 ### 1-3 이동 및 이름변경
 ```
 #파일의 이름 변경
@@ -295,8 +300,6 @@ myweb % curl http://localhost:8080
 
 ## 8. Docker 볼륨 영속성 검증
 
-- Docker 볼륨을 생성하고 컨테이너에 연결
-- 컨테이너 삭제 전/후로 데이터가 유지됨을 증명
 ### 8-1 Docker 볼륨을 생성하고 컨테이너에 연결
 ```
 #볼륨 생성
