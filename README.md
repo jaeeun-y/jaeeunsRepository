@@ -260,7 +260,7 @@ bin  boot  dev  etc  home  lib  lib64  media  mnt  newdir1  opt  proc  root  run
 ```
 #attach
 
-#새 프로세스로 접속
+#기존 메인 프로세스에 연결
 % docker attach  testcontainer
 
 #프로세스 확인
@@ -411,7 +411,7 @@ branch.main.merge=refs/heads/main
       [Change]: 이미지는 수정 불가능, 컨테이너는 내부에서 파일을 생성, 변경 등 수정 가능.
 
       
-# 🛠트래블슈팅
+# 🛠트러블슈팅
 ```
 1. chmod 명령어로 디렉터리의 권한을 변경할 때 권한이 변경되지 않는 문제가 발생함.
 [가설] 디렉터리 내부의 하위 파일들 때문에 권한이 변경되지 않을 것이다.  
