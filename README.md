@@ -54,6 +54,7 @@ drwx------+  4 student student   128  4  2 17:00 Downloads
 ```
 student@c6r1s8 ~ % touch newfile1
 student@c6r1s8 ~ % ls
+
 Desktop		Downloads	Movies		newfile1	Pictures //새 파일이 생성됨
 Documents	Library		Music		OrbStack	Public
 ```
@@ -63,6 +64,7 @@ student@c6r1s8 ~ % cat newfile1
 hello jaeeun
 student@c6r2s8 ~ % cat newfile2
 cat: newfile2: No such file or directory
+
 student@c6r1s8 ~ % cp newfile1 newfile2 //newfile1 파일 복사
 student@c6r1s8 ~ % cat newfile2
 hello jaeeun
@@ -71,27 +73,30 @@ hello jaeeun
 ### 1-3 이동 및 이름변경
 ```
 #파일의 이름 변경
-student@c6r1s8 ~ % mv newfile3  newfile4 
 student@c6r1s8 ~ touch newfile3
 student@c6r2s8 ~ % ls
 Desktop		Documents	Library		Music		Pictures	myweb
 Dockerfile	Downloads	Movies		OrbStack	Public newfile3
+
 student@c6r1s8 ~ % mv newfile3  newfile4
 student@c6r1s8 ~ % ls
 Desktop		Downloads	Movies		newfile4	Pictures
 Documents	Library		Music		OrbStack	Public
 ```
+
 ```
 #파일의 이동
 student@c6r1s8 ~ % mv newfile4 newdir1
-student@c6r1s8 ~ % cd newdir1 //change directory로 newdir1로 이동
+student@c6r1s8 ~ % cd newdir1
 student@c6r1s8 newdir1 % ls
 newfile4
 ```
+
 ### 1-4 파일 내용 확인
 ```
 student@c6r1s8 ~ % echo "hello jaeeun" > newfile1
-student@c6r1s8 ~ % cat newfile1 //파일 내용 확인
+
+student@c6r1s8 ~ % cat newfile1
 hello jaeeun
 ```
 ----
@@ -106,9 +111,9 @@ x 실행 권한 (1)
 ### -변경 전  
 ```
 #디렉터리 권한 확인
-student@c6r1s8 ~ % ls -l newdir1
-total 8
--rw-r--r--  1 student student  3  4  2 18:12 newfile4
+student@c6r1s8 ~ % ls -ld newdir1
+drwxr-x---+ 26 student student  832  4 12 14:34 .
+
 #파일 권한 확인
 student@c6r1s8 ~ % ls -l newdir1/newfile4 
 -rw-r--r--  1 student student  3  4  2 18:12 newdir1/newfile4
@@ -123,6 +128,7 @@ rwx   rwx    rwx
 % chmod -R 777 newdir1
 % ls -ld newdir1
 drwxrwxrwx  3 student student  96  4  2 18:17 newdir1
+
 % ls -l newdir1        
 total 8
 -rwxrwxrwx  1 student student  3  4  2 18:12 newfile4
@@ -171,24 +177,28 @@ latest: Pulling from library/hello-world
 Digest: sha256:452a468a4bf985040037cb6d5392410206e47db9bf5b7278d281f94d1c2d0931
 Status: Downloaded newer image for hello-world:latest
 docker.io/library/hello-world:latest
+
 % docker images
 REPOSITORY    TAG       IMAGE ID       CREATED      SIZE
 hello-world   latest    e2ac70e7319a   9 days ago   10.1kB
-//docker pull 명령어를 활용하여 docker hub에서 hello-world 이미지를 다운로드 받아
-정상적으로 images 목록에 추가된 것을 확인함.
+
+//images 목록에 추가된 것을 확인함.
 ```
 ### 컨테이너: 실행/중지/목록 확인
 ```
 #이미지를 백그라운드에서 실행
 % docker run -d --name myweb nginx
+
 #실행 중인 컨테이너
 % docker ps                       
 CONTAINER ID   IMAGE     COMMAND                   CREATED              STATUS              PORTS     NAMES
 7351add7fbde   nginx     "/docker-entrypoint.…"   About a minute ago   Up About a minute   80/tcp    myweb
 //status가 up 이므로 실행 중임을 확인할 수 있음
+
 #중지
 % docker stop myweb
 myweb
+
 #(죽어있는 컨테이너까지 포함한) 목록 확인
 % docker ps -a
 CONTAINER ID   IMAGE         COMMAND                   CREATED          STATUS                          PORTS     NAMES
@@ -217,7 +227,7 @@ CONTAINER ID   IMAGE         COMMAND                   CREATED          STATUS  
 ```
 ```
 #리소스 확인 // 컨테이너의 CPU나 메모리 점유율 확인
-% docker logs myweb
+% docker status myweb
 CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O     PIDS 
 7351add7fbde   myweb     0.00%     20.43MiB / 15.67GiB   0.13%     1.13kB / 126B   16.1MB / 0B   7 
 ```
