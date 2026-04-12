@@ -303,7 +303,7 @@ cb76d25f228d   ubuntu    "bash"                    About a minute ago   Up About
 
 myweb  
  ㄴ src  
-      ㄴ index.html  
+        ㄴ index.html  
  ㄴ Dockerfile
 
 
@@ -311,13 +311,17 @@ myweb
 # 디렉터리 생성
 % mkdir -p myweb/src // myweb 폴더와 그 안에 소스코드를 담을 src폴더를 생성
 % cd myweb
+
 #src폴더 속 html 웹 페이지 파일 생성
 myweb % echo "<h1>Hello, Docker World! (Version 1)</h1>" > src/index.html
+
 #Dockerfile 작성하기
 myweb % cat <<EOF > Dockerfile
+
 FROM nginx:latest //가장 최근 nginx이미디를 뼈대로 가져옴
-COPY src/ /usr/share/nginx/html/ //내 컴퓨터의 src 폴더 안에 있는 파일들을 컨테이너 내부의 /usr/share/nginx/html/ 폴더로 복사해라
+COPY src/ /usr/share/nginx/html/ //내 컴퓨터 src 폴더 속 파일들을 컨테이너 내부의 /usr/share/nginx/html/ 폴더로 복사
 EOF
+
 #Dockerfile build
 myweb % docker build -t myweb-app . //-t: 새로 만들어지는 이미지에 이름 붙이기
 [+] Building 0.5s (7/7) FINISHED                                                                                                                           docker:orbstack
@@ -334,8 +338,8 @@ myweb % docker build -t myweb-app . //-t: 새로 만들어지는 이미지에 �
  => => exporting layers                                                                                                                                               0.0s
  => => writing image sha256:851e940c91be86bc64f520b0b61c723a6daaacffa582944bed48207353a0ae44                                                                          0.0s
  => => naming to docker.io/library/myweb-app          
-#컨테이너 실행 및 포트 매핑
-myweb % docker run -d -p 8080:80 --name custom-web myweb-app 
+#컨테이너 실행 및 포트 매핑, 바인드마운트
+myweb % docker run -d -p 8080:80 --name custom-web -v /usr/share/nginx/html myweb-app 
 ```
 <img width="1658" height="482" alt="image" src="https://github.com/user-attachments/assets/25f0fd80-9293-40e0-ae21-f8366724c1dd" />
 ----
